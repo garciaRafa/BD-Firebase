@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Consulta</title>
+</head>
+<body>
+    <h1>Usuários encontrados:</h1>
+    {% if usuarios %}
+        <ul>
+            {% for usuario in usuarios %}
+                <li>
+                    <strong>Nome:</strong> {{ usuario.nome }}<br>
+                    <strong>Email:</strong> {{ usuario.email }}<br>
+                    <strong>Idade:</strong> {{ usuario.idade }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum usuário encontrado com a idade especificada.</p>
+    {% endif %}
+</body>
+    <a href="{% url 'home' %}">
+        <button>Voltar para a Home</button>
+    </a>
+</html>
